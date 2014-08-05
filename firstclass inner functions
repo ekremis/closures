@@ -1,0 +1,24 @@
+/* first-class functions can be constructed at runtime and assigned to variables.  They can also be passed to, and returned by other functions. JavaScript functions also have their own properties and methods. */
+
+var foo = function () {
+    alert("Hello World!");
+};
+
+var bar = function (arg) {
+    return arg;
+};
+
+bar(foo)();
+
+/* Inner functions, also referred to as nested functions, are functions that are defined inside of another function (referred to as the outer function). Each time the outer function is called, an instance of the inner function is created. The following example shows how inner functions are used. In this case, add() is the outer function. Inside of add(), the doAdd() inner function is defined and called. */
+function add(value1, value2) {
+    function doAdd() {
+        return value1 + value2;
+    }
+    return doAdd();
+}
+
+
+var foo = add(1, 2);
+alert(foo);
+// foo equals 3
