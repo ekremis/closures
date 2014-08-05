@@ -1,0 +1,14 @@
+// HTML
+<span id="message"></span>
+
+// JS
+function getClosure(message) {
+  function showMessage() {
+    document.getElementById("message").innerHTML += message;
+  }
+
+  return showMessage;
+}
+
+var showMessage2 = getClosure("some message<br />");
+setInterval(showMessage2, 3000);
