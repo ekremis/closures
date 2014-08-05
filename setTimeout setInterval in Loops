@@ -1,0 +1,27 @@
+// JS
+<!-- AUTO PLAY -->	
+var text = new Array("Barcelona", "Rome", "Berlin");
+var i = 0;
+var loop_times = 0;
+document.getElementById('message').style.opacity = 0;
+
+setTimeout(function () {
+    loop_interval = setInterval(function () {
+    setTimeout(function () {
+            document.getElementById('message').style.opacity = 1;
+        }, 0001);
+        document.getElementById('message').innerHTML = text[i++];
+        setTimeout(function () {
+            document.getElementById('message').style.opacity = 0;
+        }, 1500);
+        loop_times++;
+        if (i == 3) i = 0;
+        if (loop_times == 6) {
+            window.clearInterval(loop_interval);
+        }
+    }, 2500);
+}, 0001);
+
+
+// HTML
+<span id="message"></span>
