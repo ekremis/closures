@@ -1,0 +1,23 @@
+for (var i = 1; i < 4; i++) {
+    //    var button = document.getElementById("button" + i);
+    //    button.addEventListener("click", getHandler(i));
+    //    $(button).click(getHandler(i));
+    $("#button" + i).click(getHandler(i));
+}
+
+function getHandler(i) {
+    return function handler() {
+        alert("Clicked button " + i);
+    };
+}
+
+
+/* the closure must be decoupled from the actual loop variable. This can be done by calling a new function, which in turn creates a new referencing environment. The following example shows how this is done. The loop variable is passed to the getHandler() function. getHandler() then returns a closure that is independent of the original “for” loop.*/
+
+
+
+/* HTML */
+<input type="button" id="button1" value="One" />
+<input type="button" id="button2" value="Two" />
+<input type="button" id="button3" value="Three" />
+<p id="p1"></p>
