@@ -1,0 +1,44 @@
+// HTML
+
+<p id="p0">One</p>
+<p id="p1">Two</p>
+<p id="p2">Three</p>
+<br>
+<br>
+<button id="button1">Show ALL numbers</button>
+<button id="button2">Show ALL numbers (version 2)</button>
+<p id="txt0"></p>
+<p id="txt1"></p>
+<p id="txt2"></p>
+<p id="txt3"></p>
+
+// JS
+function myFunction() {
+
+    function getText(i) {
+        return function handler() {
+            {
+                var text = $("#p" + i).html();
+                return text;
+            }
+        };
+    }
+
+    $("#button1").click(function () {
+        for (var i = 0; i < 3; i++) {
+            var txtSelector = document.getElementById("txt" + i);
+            $(txtSelector).html(getText(i));
+        }
+    });
+
+    $("#button2").click(function() {    
+    for(var j=0; j<3; j++) {        
+        var from = document.getElementById('p'+j);
+        var to = document.getElementById('txt'+j);        
+        $(to).html($(from).html());        
+    }
+});
+}
+
+
+$(document).ready(myFunction);
