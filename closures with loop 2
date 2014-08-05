@@ -1,0 +1,10 @@
+var list = [ 'a', 'b', 'c' , 'd' ];
+for (var i=0, l=list.length; i<l; i++) 
+{
+	var f = function(item)
+	{
+    setTimeout( function(){ alert(item); }, 2000 );
+  	};
+    var y = list[i];
+	f(y);
+}
